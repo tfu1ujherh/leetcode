@@ -13,27 +13,38 @@
  *     }
  * }
  */
-
-
 class Solution {
     public List<Integer> rightSideView(TreeNode root) {
 
-        List<Integer>list=new ArrayList<>();
-
-        solve(root,0,list);
-        return list;
         
-    }
 
-    public static void solve(TreeNode root,int level,List<Integer>list){
+        List<Integer>res=new ArrayList<>();
+        Queue<TreeNode>queue=new LinkedList<>();
         if(root==null){
-            return;
+            return res;
         }
-        if(level==list.size()){
-            list.add(root.val);
+
+        queue.offer(root);
+
+        while(!queue.isEmpty()){
+            int curLevel=queue.size();
+            for(int i=0;i<curLevel;i++){
+                TreeNode curNode=queue.poll();
+
+                if(curLevel-1==i){
+                    res.add(curNode.val);
+                }
+
+                if(curNode.left!=null){
+                    queue.offer(curNode.left);
+                }
+                if(curNode.right!=null){
+                    queue.offer(curNode.right);
+                }
+            }
         }
-            solve(root.right,level+1,list);
-            solve(root.left,level+1,list);
+
+        return res;
         
     }
 }
