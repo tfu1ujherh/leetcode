@@ -29,11 +29,17 @@ class Solution {
 
     public boolean isValid(char board[][],int row,int col,char num){
 
-        for(int i=0;i<9;i++){
-            if(board[row][i] ==num||board[i][col]==num|| board[3*(row/3)+i/3] [3*(col/3)+i%3]==num){
-                return false;
-            }
+        for (int i = 0; i < 9; i++) {
+            // Row
+            if (board[row][i] == num) return false;
 
+            // Column
+            if (board[i][col] == num) return false;
+
+            // 3x3 box
+            int boxRow = 3 * (row / 3) + i / 3;
+            int boxCol = 3 * (col / 3) + i % 3;
+            if (board[boxRow][boxCol] == num) return false;
         }
         return true;
     }
