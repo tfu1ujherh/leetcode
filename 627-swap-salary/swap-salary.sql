@@ -2,8 +2,4 @@
 
 
 update salary
-set sex=case 
-        when sex='m' then 'f'
-        when sex='f' then 'm'
-        else sex
-        end;
+set sex=if(sex='m','f','m');
