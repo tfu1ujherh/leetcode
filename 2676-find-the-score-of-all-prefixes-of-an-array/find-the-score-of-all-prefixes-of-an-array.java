@@ -5,14 +5,14 @@ class Solution {
         res[0]=nums[0]*2;
         int max=nums[0];
         for(int i=1;i<n;i++){
-            int num=nums[i];
-            max=Math.max(max,num);
-            if(num<max){
-                num=num+max;
+            // int num=nums[i];
+            max=Math.max(max,nums[i]);
+            if(nums[i]<max){
+                nums[i]=nums[i]+max;
             }else{
-                num=num*2;
+                nums[i]=nums[i]*2;
             }
-            long cur=num+res[i-1];
+            long cur=nums[i]+res[i-1];
             res[i]=cur;
         }
         return res;
