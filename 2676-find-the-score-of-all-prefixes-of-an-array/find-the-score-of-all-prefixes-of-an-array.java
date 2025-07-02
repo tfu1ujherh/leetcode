@@ -17,9 +17,7 @@ class Solution {
         // return res;
         int max = 0;
         for(int i=0;i<n;i++){
-            if(max<nums[i]){
-                max = nums[i];
-            }
+           max=Math.max(max,nums[i]);
             if(i==0){
                 res[i] = nums[i] + nums[i];
             }
