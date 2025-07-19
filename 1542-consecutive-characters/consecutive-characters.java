@@ -6,10 +6,10 @@ class Solution {
         for(int i=1;i<n;i++){
             if(s.charAt(i-1)==s.charAt(i)){
                 count++;
-                max=Math.max(count,max);
             }else{
                 count=1;
             }
+            max=Math.max(count,max);
             
         }
         return max;
