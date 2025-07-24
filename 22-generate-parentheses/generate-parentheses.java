@@ -6,8 +6,6 @@ class Solution {
         solve(n,result,ans,0,0);
         return result;
     }
-
-
     public static void solve(int n,List <String>result,String ans,int open,int close){
 
         if(open==n && close==n){
