@@ -7,9 +7,9 @@ class Solution {
                 if(i==j){
                     continue;
                 }
-                // if(words[i].length()<words[j].length()){
-                //     continue;
-                // }
+               if(words[i].length()>words[j].length()){
+                    continue;
+                } 
                 if(words[j].contains(words[i])){
                     res.add(words[i]);
                     break;
