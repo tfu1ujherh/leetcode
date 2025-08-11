@@ -6,7 +6,7 @@ class Solution {
         int count=0;
         for(int i=0;i<n;i++){
             if(!visited[i]){
-                dfs(isConnected,visited,i);
+                bfs(isConnected,visited,i);
                 count++;
             }
         }
@@ -14,21 +14,21 @@ class Solution {
         
     }
 
-    public void dfs(int isConnected[][],boolean[] visited,int startVertex){
+    public void bfs(int isConnected[][],boolean[] visited,int startVertex){
         int n=isConnected.length;
-        Stack<Integer> stack =new Stack<>();
-        stack.push(startVertex);
-        while(!stack.isEmpty()){
-            int cur=stack.pop();
-            if(!visited[cur]){
-                visited[cur]=true;
-                for(int i=0;i<n;i++){
-                    if(isConnected[cur][i]==1 && !visited[i]){
-                        stack.push(i);
-                    }
+        Queue<Integer>queue=new LinkedList<>();
+        queue.add(startVertex);
+        visited[startVertex]=true;
+        while(!queue.isEmpty()){
+            int cur=queue.poll();
+            for(int i=0;i<n;i++){
+                if(isConnected[cur][i]==1 && !visited[i]){
+                    visited[i]=true;
+                    queue.add(i);
                 }
-
+                
             }
         }
+       
+        }
     }
-}
